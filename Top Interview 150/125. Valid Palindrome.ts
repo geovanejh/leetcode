@@ -1,10 +1,16 @@
 function isPalindrome(s: string): boolean {
     let planString: string = s.toLowerCase().replace(/[^a-z0-9]/gi, '');
-    let reverseString: string = ''
+    let left = 0
+    let right = planString.length - 1
 
-    for (let i = 0; i <= planString.length - 1; i++) {
-        reverseString += planString[planString.length - 1 - i]
+    while (right > 0) {
+        if (planString[left] !== planString[right]) {
+            return false
+        }
+
+        right--
+        left++
     }
 
-    return reverseString === planString
+    return true
 };
